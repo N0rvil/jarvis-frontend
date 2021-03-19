@@ -1,0 +1,37 @@
+@import '../../App.scss';
+
+
+.weather {
+    background-color: $color-grey-light-1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    &__town {
+        font-size: 4rem;
+
+    }
+    &__icon {
+        height: 10rem;
+    }
+
+    &__temperature {
+        font-size: 4rem;
+        &-blue {
+            color: $color-blue-1;
+        }
+
+        &-orange {
+            color: $color-orange;
+        }
+    }
+
+    &__windspeed {
+        font-size: 2rem;
+    }
+    &__pressure {
+        font-size: 2rem;
+    }
+}

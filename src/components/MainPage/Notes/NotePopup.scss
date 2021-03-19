@@ -1,0 +1,47 @@
+@import '../../App.scss';
+.popup-content {
+    margin: auto;
+    background-color: $color-grey-dark-2;
+    width: 50%;
+    height: 25rem;
+    padding: 5px;
+  }
+  .popup-arrow {
+    color: $color-grey-dark-2;
+  }
+  [role='tooltip'].popup-content {
+    width: 25rem; // width of the popup-content
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  }
+  .popup-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  [data-popup='tooltip'].popup-overlay {
+    background: transparent;
+  }
+
+
+.popup {
+    &__form {
+        height: 22rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__input {
+        height: 3rem;
+        outline: none;
+        font-size: 1.5rem;
+        font-family: $font-basic;
+    }
+    &__textarea {
+        height: 12rem;
+        outline: none;
+        font-family: $font-basic;
+    }
+
+    &__btn {
+      margin-top: 1rem;
+    }
+}

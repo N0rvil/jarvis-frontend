@@ -1,0 +1,73 @@
+@import './../App.scss';
+@import './../Animations/Animations.scss';
+
+.mainpage {
+    // &__hello {
+    //     background-color: $color-blue-1;
+    //     height: 100vh;
+    //     position: relative;
+    //     animation: Hide 1s 1s; // change to 1.5s and 2s
+    //     z-index: 1;
+    //     animation-iteration-count: 1;
+    //     animation-fill-mode: forwards; 
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     justify-content: center;
+    //     &-header {
+    //         text-transform: uppercase;
+    //         font-size: 10rem;
+    //         color: $color-grey-dark-1;
+    //         
+    //     }
+    // }
+    &__content {
+        background-color: $color-grey-dark-1;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+       
+        display: grid;
+        grid-template-columns: 1.25fr 2.75fr 1.25fr;
+        grid-template-rows: 8vh 41vh 41vh;
+        padding: 2rem;
+        grid-gap: 2.8rem;
+    }
+    &__nav {
+        // background-color: blueviolet;
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+    }
+
+    &__calendar {
+        background-color: yellowgreen;
+        grid-column: 1 / 2;
+        grid-row: 2 / 4;
+    }
+    &__graph {
+        background-color: red;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    &__links {
+        background-color: blue;
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+
+    &__notes {
+        background-color: green;
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+    }
+
+    &__weather {
+        background-color: pink;
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+    }
+}
+

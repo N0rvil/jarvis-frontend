@@ -1,0 +1,43 @@
+@import '../App.scss';
+
+.btn__primary {
+    height: 3rem;
+    width: 8rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    &-white {
+        background-color: $color-white;
+    }
+    &-red {
+        background-color: $color-red;
+    }
+    &:hover {
+        transition: all .2s;
+        transform: scale(1.05);
+        box-shadow: 2px 5px 6px $color-grey-dark-1;
+        cursor: pointer;
+    }
+}
+
+.btn__big {
+    color: $color-white;
+    height: 4rem;
+    width: 15rem;
+    font-size: 1.6rem;
+    font-weight: 800;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    border-radius: 10rem;
+    &-grey {
+        background-color: $color-grey-dark-2;
+    }
+    &:hover {
+        transition: all .2s;
+        transform: scale(1.05);
+        box-shadow: 2px 5px 6px $color-grey-dark-1;
+        cursor: pointer;
+    }
+}

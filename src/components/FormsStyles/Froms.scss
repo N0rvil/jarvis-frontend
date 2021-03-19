@@ -1,0 +1,57 @@
+@import './../App.scss';
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    &__header {
+        font-size: 8rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $color-grey-light-1;
+    }
+
+    &__input {
+        height: 5rem;
+        width: 40rem;
+        margin-top: 3rem;
+        padding: 2rem;
+        background-color: $color-grey-light-1;
+        border: none;
+        font-size: $font-size-big;
+        outline: none;
+        font-family: inherit;
+    }
+
+    &__button {
+        height: 4rem;
+        width: 15rem;
+        margin-top: 2.2rem;
+        background-color: $color-grey-light-2;
+        color: $color-grey-dark-1;
+        border: none;
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 2rem;
+        outline: none;
+        text-transform: uppercase;
+        &:hover {
+            transition: .2s ease-in-out 0s;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+
+    &__err {
+        color: $color-red;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        text-transform: uppercase;
+        height: 2rem;
+    }
+}
