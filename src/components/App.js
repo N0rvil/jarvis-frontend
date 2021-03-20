@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import Cookies from 'js-cookie';
 
 import './App.scss';
 
@@ -14,31 +15,36 @@ import { checkLogin } from '../actions';
 
 import history from '../history';
 
-import Cookies from 'js-cookie';
+import { url } from './url'
+
+
 
 class App extends React.Component {
 
   checkLoginReq(e) {  
          axios({
             method: 'POST',
-            url: 'https://nodejs-jarvis-backend.herokuapp.com/',
+            url: url,
             data: Cookies.get(),
         })
         .then(response =>  {
          if (response.data.note === 'verified') {
-                this.props.checkLogin(true)
-                history.replace('/main-page') 
+                this.props.checkLogin(true);
+                history.replace('/main-page') ;
             } else {
-                this.props.checkLogin(false)
-                history.replace('/login?')
+                this.props.checkLogin(false);
+                history.replace('/login?');
             }
         })
         .catch(err => console.log(err));
     }
+
+    componentDidMount() {
+        this.checkLoginReq() 
+    }
     
     render() {
-            this.checkLoginReq()
-         
+            
         // Routes for loged users 
         if (this.props.login === true) {
             return (
@@ -47,6 +53,7 @@ class App extends React.Component {
                         <div>
                             <Switch>
                                 <Route path='/main-page' exact component={MainPage} />
+                                <Route path='/' exact component={Login} />
                                 <Route component={NotFound} />
                             </Switch>
                         </div>

@@ -10,6 +10,8 @@ import Navbar from './Navbar/Navbar';
 import Notes from './Notes/Notes';
 import Weather from './Weather/Weather';
 
+import { url } from '../url';
+
 
 import './MainPage.scss';
 
@@ -19,7 +21,7 @@ class MainPage extends React.Component {
     getUser() { 
         axios({
             method: 'POST',
-            url: 'https://nodejs-jarvis-backend.herokuapp.com/getuser',
+            url: `${url}/getuser`,
             data: Cookies.get(),
         })
         .then(response =>  {

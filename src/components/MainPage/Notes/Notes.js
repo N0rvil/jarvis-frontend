@@ -9,6 +9,8 @@ import NoteEditPopup from './NoteEditPopup';
 import './Notes.scss';
 import '../../FormsStyles/Buttons.scss'
 
+import { url } from '../../url';
+
 class Notes extends React.Component {
 
     state = { notes: [] }
@@ -16,7 +18,7 @@ class Notes extends React.Component {
     getNotes()  { 
         axios({
             method: 'POST',
-            url: 'https://nodejs-jarvis-backend.herokuapp.com/getnotes',
+            url: `${url}/getnotes`,
             data: Cookies.get(),
         })
         .then(response => {       
@@ -32,11 +34,11 @@ class Notes extends React.Component {
     deleteNote(id) {
         axios({
             method: 'POST',
-            url: 'https://nodejs-jarvis-backend.herokuapp.com/deletenote',
+            url: `${url}/deletenote`,
             data: { id: id }, //data must be a object
         })
         .then(response => {    
-            window.location.reload(); //Reloading the page
+            window.location.reload(false); //Reloading the page
         })
         .catch(err => console.log(err));
     }

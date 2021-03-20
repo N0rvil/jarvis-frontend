@@ -6,6 +6,8 @@ import 'reactjs-popup/dist/index.css';
 import '../../FormsStyles/Buttons.scss';
 import './NotePopup.scss';
 
+import { url } from '../../url';
+
  
 class NoteAddPopup extends React.Component {
 
@@ -20,7 +22,7 @@ class NoteAddPopup extends React.Component {
         e.preventDefault();
       axios({
         method: 'POST',
-        url: 'https://nodejs-jarvis-backend.herokuapp.com/getnotecontent',
+        url: `${url}/getnotecontent`,
         data: { id: id } //data must be a object
       })
      

@@ -6,6 +6,8 @@ import './../FormsStyles/Froms.scss';
 
 import history from '../../history'
 
+import { url } from '../url';
+
 class Login extends React.Component {
     state = { email: '', password: '', authentication: '' , url: document.URL}
 
@@ -13,7 +15,7 @@ class Login extends React.Component {
         e.preventDefault()
         axios({
             method: 'POST',
-            url: 'https://nodejs-jarvis-backend.herokuapp.com/login',
+            url: `${url}/login`,
             data: this.state
         })
         .then(async response => {
@@ -39,7 +41,7 @@ class Login extends React.Component {
     emailControl() {
         axios({
             method: 'POST',
-            url: 'https://nodejs-jarvis-backend.herokuapp.com/emailVerification',
+            url: `${url}/emailVerification`,
             data: this.state
         })
         .then(response => {
@@ -49,10 +51,10 @@ class Login extends React.Component {
     }
 
     pageControl() {
-        if (document.URL === 'https://nodejs-jarvis-backend.herokuapp.com/login') {
-            return
-        } else {
+        if (document.URL === `${url}/login?`) {
             this.emailControl();
+        } else {
+            return
         }
     }
     

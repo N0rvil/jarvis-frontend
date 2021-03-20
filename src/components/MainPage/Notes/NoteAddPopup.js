@@ -7,6 +7,8 @@ import 'reactjs-popup/dist/index.css';
 import '../../FormsStyles/Buttons.scss'
 import './NotePopup.scss'
 
+import { url } from '../../url';
+
  
 class NoteAddPopup extends React.Component {
 
@@ -15,7 +17,7 @@ class NoteAddPopup extends React.Component {
   createNote() { 
     axios({
         method: 'POST',
-        url: 'https://nodejs-jarvis-backend.herokuapp.com/createnote',
+        url: `${url}/createnote`,
         data: { cookies: Cookies.get(), note: this.state },
     })
     .then(response =>  {

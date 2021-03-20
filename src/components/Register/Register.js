@@ -3,6 +3,8 @@ import './../FormsStyles/Froms.scss';
 import history from '../../history'
 import axios from 'axios';
 
+import { url } from '../url';
+
 class Register extends React.Component {
     state = { username: '', email: '', password: '' ,passwordControl: '', usernameErr: '', emailErr: '', passErr: '', passControlErr: ''};
 
@@ -43,7 +45,7 @@ class Register extends React.Component {
             this.setState({ passErr: '' });
             axios({
                 method: 'POST',
-                url: 'https://nodejs-jarvis-backend.herokuapp.com/register',
+                url: `${url}/register`,
                 data: this.state
             })
             .then(response => {

@@ -4,6 +4,8 @@ import axios from 'axios';
 import './Weather.scss';
 import '../../FormsStyles/Buttons.scss'
 
+import { url } from '../../url';
+
 class Notes extends React.Component {
 
     state = { lat: null, lng: null, town: '', temperature: null, icon: '', windspeed: null, pressure: null };
@@ -22,7 +24,7 @@ class Notes extends React.Component {
                 
                  axios({
                   method: 'POST',
-                  url: 'https://nodejs-jarvis-backend.herokuapp.com/getweather',
+                  url: `${url}/getweather`,
                   data: this.state, 
               })
               .then(async response =>  {
