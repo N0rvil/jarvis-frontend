@@ -38,7 +38,7 @@ class Notes extends React.Component {
             data: { id: id }, //data must be a object
         })
         .then(response => {    
-            window.location.reload(false); //Reloading the page
+            window.location.reload(); //Reloading the page
         })
         .catch(err => console.log(err));
     }

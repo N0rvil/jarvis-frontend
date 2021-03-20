@@ -3,6 +3,8 @@ import Popup from 'reactjs-popup';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
+import history from '../../../history';
+
 import 'reactjs-popup/dist/index.css';
 import '../../FormsStyles/Buttons.scss'
 import './NotePopup.scss'
@@ -14,20 +16,25 @@ class NoteAddPopup extends React.Component {
 
   state = { noteHeader: '', note: '' }
 
-  createNote() { 
+  
+
+  createNote(e) { 
+  e.preventDefault()
     axios({
         method: 'POST',
         url: `${url}/createnote`,
         data: { cookies: Cookies.get(), note: this.state },
     })
     .then(response =>  {
-        console.log(response.data.note)
+      window.location.reload();
     })
     .catch(err => console.log(err));
 }
 
 
+
   render() {
+    
     return(
       <Popup trigger={<button className='btn__big btn__big-grey popup__btn'> Add note +</button>} position="top center">
     <div className='popup'>
