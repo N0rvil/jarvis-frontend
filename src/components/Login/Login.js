@@ -39,7 +39,7 @@ class Login extends React.Component {
     emailControl() {
         axios({
             method: 'POST',
-            url: 'http://localhost:3006/emailVerification',
+            url: 'https://nodejs-jarvis-backend.herokuapp.com/emailVerification',
             data: this.state
         })
         .then(response => {
@@ -49,7 +49,7 @@ class Login extends React.Component {
     }
 
     pageControl() {
-        if (document.URL === 'http://localhost:3000/login') {
+        if (document.URL === 'https://nodejs-jarvis-backend.herokuapp.com/login') {
             return
         } else {
             console.log('pageControl')
