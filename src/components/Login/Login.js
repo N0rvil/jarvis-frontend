@@ -20,8 +20,6 @@ class Login extends React.Component {
         })
         .then(async response => {
             if (response.data.note === 'success') {
-
-            
                 const expireTime = 4/48; //2 HOURS
                 await Cookies.set('loged', { id: response.data.id, username: response.data.username, hash: response.data.hash, time: response.data.time, }, { expires: expireTime })
                 return '/main-page'
@@ -51,7 +49,7 @@ class Login extends React.Component {
     }
 
     pageControl() {
-        if (document.URL === `${url}/login`) {
+        if (document.URL === `${url}/login?`) {
             this.emailControl();
         } else {
             return
