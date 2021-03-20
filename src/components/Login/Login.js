@@ -52,7 +52,6 @@ class Login extends React.Component {
         if (document.URL === 'https://nodejs-jarvis-backend.herokuapp.com/login') {
             return
         } else {
-            console.log('pageControl')
             this.emailControl();
         }
     }
