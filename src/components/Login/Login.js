@@ -51,7 +51,7 @@ class Login extends React.Component {
     }
 
     pageControl() {
-        if (document.URL === `${url}/login?`) {
+        if (document.URL === `${url}/login`) {
             this.emailControl();
         } else {
             return
