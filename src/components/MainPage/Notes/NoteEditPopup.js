@@ -20,7 +20,7 @@ class NoteAddPopup extends React.Component {
         e.preventDefault();
       axios({
         method: 'POST',
-        url: 'http://localhost:3006/getnotecontent',
+        url: 'https://nodejs-jarvis-backend.herokuapp.com/getnotecontent',
         data: { id: id } //data must be a object
       })
      
@@ -39,10 +39,8 @@ class NoteAddPopup extends React.Component {
     updateNote() {
       axios({
         method: 'POST',
-        url: 'http://localhost:3006/updatenote',
+        url: 'https://nodejs-jarvis-backend.herokuapp.com/updatenote',
         data: this.state //data must be a object
-      }).then(response => {
-        console.log(response.data.note)
       })
     }
 

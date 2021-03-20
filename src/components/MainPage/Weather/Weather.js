@@ -22,11 +22,10 @@ class Notes extends React.Component {
                 
                  axios({
                   method: 'POST',
-                  url: 'http://localhost:3006/getweather',
+                  url: 'https://nodejs-jarvis-backend.herokuapp.com/getweather',
                   data: this.state, 
               })
               .then(async response =>  {
-                  console.log(response.data)
                   await this.setState({ town: response.data.town, temperature: response.data.temperature, icon: response.data.icon, windspeed: response.data.windspeed, pressure: response.data.pressure })
               })
               .catch(err => console.log(err));

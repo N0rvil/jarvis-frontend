@@ -15,7 +15,7 @@ class NoteAddPopup extends React.Component {
   createNote() { 
     axios({
         method: 'POST',
-        url: 'http://localhost:3006/createnote',
+        url: 'https://nodejs-jarvis-backend.herokuapp.com/createnote',
         data: { cookies: Cookies.get(), note: this.state },
     })
     .then(response =>  {

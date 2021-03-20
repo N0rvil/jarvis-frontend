@@ -13,7 +13,7 @@ class Login extends React.Component {
         e.preventDefault()
         axios({
             method: 'POST',
-            url: 'http://localhost:3006/login',
+            url: 'https://nodejs-jarvis-backend.herokuapp.com/login',
             data: this.state
         })
         .then(async response => {

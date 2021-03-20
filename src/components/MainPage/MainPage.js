@@ -19,7 +19,7 @@ class MainPage extends React.Component {
     getUser() { 
         axios({
             method: 'POST',
-            url: 'http://localhost:3006/getuser',
+            url: 'https://nodejs-jarvis-backend.herokuapp.com/getuser',
             data: Cookies.get(),
         })
         .then(response =>  {

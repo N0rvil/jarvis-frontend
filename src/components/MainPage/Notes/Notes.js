@@ -16,7 +16,7 @@ class Notes extends React.Component {
     getNotes()  { 
         axios({
             method: 'POST',
-            url: 'http://localhost:3006/getnotes',
+            url: 'https://nodejs-jarvis-backend.herokuapp.com/getnotes',
             data: Cookies.get(),
         })
         .then(response => {       
@@ -32,7 +32,7 @@ class Notes extends React.Component {
     deleteNote(id) {
         axios({
             method: 'POST',
-            url: 'http://localhost:3006/deletenote',
+            url: 'https://nodejs-jarvis-backend.herokuapp.com/deletenote',
             data: { id: id }, //data must be a object
         })
         .then(response => {    

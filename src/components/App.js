@@ -21,7 +21,7 @@ class App extends React.Component {
   checkLoginReq(e) {  
          axios({
             method: 'POST',
-            url: 'http://localhost:3006/',
+            url: 'https://nodejs-jarvis-backend.herokuapp.com/',
             data: Cookies.get(),
         })
         .then(response =>  {

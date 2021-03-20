@@ -43,7 +43,7 @@ class Register extends React.Component {
             this.setState({ passErr: '' });
             axios({
                 method: 'POST',
-                url: 'http://localhost:3006/register',
+                url: 'https://nodejs-jarvis-backend.herokuapp.com/register',
                 data: this.state
             })
             .then(response => {
