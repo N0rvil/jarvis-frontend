@@ -1,0 +1,72 @@
+@import '../../App.scss';
+
+.graphs {
+    background-color: $color-grey-light-1;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    &__graph {
+        background-color: $color-red;
+        height: 100%;
+        width: 79.5%;
+    }
+
+    &__data {
+        background-color: $color-grey-dark-2;
+        color: $color-white;
+        height: 100%;
+        width: 19.5%;
+        
+    
+        &-header {
+            font-size: 2rem;
+        }
+
+        &-form {
+            height: 35%;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &-select {
+            color: $color-white;
+            background-color: $color-grey-dark-2;
+            width: 16rem;
+            height: 4rem;
+            font-size: 1.8rem;
+            border: 2px solid $color-white;
+            outline: none;
+            font-family: inherit;
+            text-transform: uppercase;
+            
+        }
+
+        &-option {
+            border: none;
+            display: flex;
+            height: 4rem;
+        }
+
+        &-info {
+            height: 55%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        &-price {
+            font-size: 3rem;
+        }
+
+        &-percentage {
+            font-size: 3rem;
+        }
+    }
+}

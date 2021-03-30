@@ -9,6 +9,8 @@ import { getUser } from '../../actions';
 import Navbar from './Navbar/Navbar';
 import Notes from './Notes/Notes';
 import Weather from './Weather/Weather';
+import Links from './Links/Links';
+import Graphs from './Graphs/Graphs';
 
 import { url } from '../url';
 
@@ -50,10 +52,10 @@ class MainPage extends React.Component {
                         Calendar
                     </div>
                     <div className='mainpage__graph'>
-                        Graph
+                        <Graphs />
                     </div>
                     <div className='mainpage__links'>
-                        Links
+                        <Links />
                     </div>
                     <div className='mainpage__notes'>
                         <Notes />

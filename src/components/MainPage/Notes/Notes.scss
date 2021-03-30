@@ -21,6 +21,7 @@
         padding: 1rem;
     }
     &__header {
+        color: $color-white;
         background-color: $color-grey-dark-2;
         width: 100%;
         height: 5rem;
@@ -40,7 +41,7 @@
     }
 
     &__content {
-        height: 28rem;
+        height: 30rem;
         width: 100%;
         overflow-y: scroll;
     }
@@ -69,6 +70,7 @@
     }
 
     &__header {
+        color: $color-white;
         background-color: $color-grey-dark-2;
         height: 4rem;
         text-transform: uppercase;
@@ -85,6 +87,8 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        font-family: $font-secondary;
+        line-height: 1.8rem;
     }
 
     &__text {
@@ -93,9 +97,58 @@
         font-size: 1.8rem;
         font-weight: 600;
         margin-bottom: 1.5rem;
+        white-space: pre-line; // it will do the linebreaks when the text is load from the database
     }
 
     &__box {
         display: flex;
+    }
+}
+
+.popup-content {
+    margin: auto;
+    background-color: $color-grey-dark-2;
+    width: 50%;
+    height: 25rem;
+    padding: 5px;
+  }
+  .popup-arrow {
+    color: $color-grey-dark-2;
+  }
+  [role='tooltip'].popup-content {
+    width: 25rem; // width of the popup-content
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  }
+  .popup-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  [data-popup='tooltip'].popup-overlay {
+    background: transparent;
+  }
+
+
+.popup {
+    &__form {
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__input {
+        height: 3rem;
+        outline: none;
+        font-size: 1.5rem;
+        font-family: $font-secondary;
+    }
+    &__textarea {
+        height: 12rem;
+        width: 100%;
+        outline: none;
+        font-family: $font-secondary;
+    }
+
+    &__btn {
+      margin-top: 1rem;
     }
 }

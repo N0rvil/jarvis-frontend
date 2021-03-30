@@ -41,3 +41,39 @@
         cursor: pointer;
     }
 }
+
+.btn__circle {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 10rem;
+    border: none;
+    font-size: 3rem;
+    outline: none;
+    &-grey {
+        color: $color-white;
+        background-color: $color-grey-dark-2;
+    }
+
+    &:hover {
+        transition: all .2s;
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+}
+
+.btn__small-circle {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 10rem;
+    border: none;
+    color: $color-black;
+    font-size: 1.5rem;
+    font-weight: 900;
+    background-color: inherit;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

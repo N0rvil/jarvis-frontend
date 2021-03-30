@@ -49,7 +49,9 @@ class Login extends React.Component {
     }
 
     pageControl() {
-        if (document.URL === `${url}/login`) {
+        const hostingUrl = 'http://localhost:3000/'
+
+        if (document.URL === `${hostingUrl}login` || `${hostingUrl}` ) { //remove the or because we will heave landing page and the control will be only on login page
             return
         } else {
             this.emailControl();

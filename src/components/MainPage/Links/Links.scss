@@ -1,0 +1,88 @@
+@import '../../App.scss';
+
+
+.links {
+    height: 100%;
+    width: 100%;
+    background-color: $color-grey-light-1;
+    &__box {
+        height: 85%;
+    }
+    &__btn-box {
+        width: 100%;
+        text-align: right;
+        margin-left: -1rem;
+    }
+}
+
+.categorylist {
+    padding: 1rem;
+    height: 100%;
+    overflow-y: scroll;
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        background-color: $color-grey-dark-2;
+
+        
+       
+        &-header{ 
+            text-align: center;
+            min-width: 15rem;
+            color: $color-white;
+            font-size: 2rem;
+        }
+
+        &-box {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        &-btn {
+            margin-left: 1.5rem;
+        }
+    }
+
+    &__box {
+        background-color: $color-grey-light-1;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 1rem;
+    }
+}
+
+#popup-1 {
+    height: 12rem;
+}
+
+.popup__links-addcategory {
+    &--form {
+        height: 10rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+
+.popup__links-addlink {
+    &--form {
+        height: 10rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &--input {
+        width: 14rem;
+        margin-bottom: 0.4rem;
+    }
+}
+
