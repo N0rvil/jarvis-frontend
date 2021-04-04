@@ -9,9 +9,13 @@
     justify-content: space-between;
 
     &__graph {
-        background-color: $color-red;
         height: 100%;
         width: 79.5%;
+    }
+
+    &__lable {
+        text-transform: uppercase;
+        font-size: 2rem;
     }
 
     &__data {
@@ -23,6 +27,7 @@
     
         &-header {
             font-size: 2rem;
+            font-weight: 500;
         }
 
         &-form {
@@ -62,11 +67,23 @@
         }
 
         &-price {
-            font-size: 3rem;
+            font-size: 2rem;
+            font-weight: 900;
         }
 
-        &-percentage {
+        &-change {
             font-size: 3rem;
+            font-weight: 900;
+
+            &--green {
+                color: $color-green-dark-1;
+            }
+
+            &--red {
+                color: $color-red;
+            }
         }
+
+        
     }
 }
