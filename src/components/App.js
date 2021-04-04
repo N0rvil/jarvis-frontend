@@ -21,7 +21,7 @@ import { url } from './url'
 
 class App extends React.Component {
 
-  checkLoginReq(e) {  
+  checkLoginReq() {  
          axios({
             method: 'POST',
             url: url,
@@ -33,14 +33,14 @@ class App extends React.Component {
                 history.replace('/main-page') ;
             } else {
                 this.props.checkLogin(false);
-                history.replace('/login?');
+                history.replace('/login');
             }
         })
         .catch(err => console.log(err));
     }
 
-    componentDidMount() {
-        this.checkLoginReq() 
+    componentDidMount() {        
+            this.checkLoginReq();  
     }
     
     render() {
