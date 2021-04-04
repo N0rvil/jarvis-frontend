@@ -49,7 +49,7 @@ class Login extends React.Component {
     }
 
     pageControl() {
-        const hostingUrl = 'https://jarvis-fontend.herokuapp.com/' //http://localhost:3000/  // https://jarvis-fontend.herokuapp.com/
+        const hostingUrl = 'https://jarvis-frontend.herokuapp.com/' //http://localhost:3000/  // https://jarvis-frontend.herokuapp.com/
 
         if (document.URL === `${hostingUrl}login` || `${hostingUrl}` ) { //remove the or because we will heave landing page and the control will be only on login page
             return
