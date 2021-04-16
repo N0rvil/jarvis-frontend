@@ -127,7 +127,7 @@ const ReactCalendar = () => {
   }
 
   const renderDeletePopup = (repeat, id) => {
-    if (repeat === 'norepeat') {
+    if (repeat === 'norepeat' || repeat === '') {
       return(
         <button className='btn__primary btn__primary-red' onClick={(e) => deleteEvent(e, repeat, id)}>Delete</button>
       )
