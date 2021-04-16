@@ -1,0 +1,146 @@
+@import './../App.scss';
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    &__header {
+        color: $color-grey-light-1;
+        font-size: 8rem;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    &__input {
+        background-color: $color-grey-light-1;
+        height: 5rem;
+        width: 40rem;
+        margin-top: 3rem;
+        padding: 2rem;
+        border: none;
+        font-size: 2.5rem;
+        outline: none;
+        font-family: inherit;
+    }
+
+    &__input-small {
+        background-color: $color-grey-dark-2;
+        color: $color-white;
+        height: 3rem;
+        width: 28rem;
+        padding: .5rem;
+        font-size: 1.2rem;
+        font-family: inherit;
+        margin: .25rem;
+        border: 2px solid $color-white;
+        outline: none;
+
+        &::placeholder {
+            color: $color-white;
+        }
+    }
+
+    &__textarea-small {
+        background-color: $color-grey-dark-2;
+        color: $color-white;
+        height: 3rem;
+        width: 28rem;
+        padding: .5rem;
+        font-size: 1.2rem;
+        font-family: inherit;
+        margin: .25rem;
+        border: 2px solid $color-white;
+        outline: none;
+
+        &::placeholder {
+            color: $color-white;
+        }
+    }
+
+    &__time {
+        background-color: $color-grey-dark-2;
+        color: $color-white;
+        border: 2px solid $color-white;
+        width: 8rem;
+        height: 3rem;
+        font-size: 1.8rem;
+        outline: none;
+    }
+
+    &__label {
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+
+    &__button {
+        height: 4rem;
+        width: 15rem;
+        margin-top: 2.2rem;
+        background-color: $color-grey-light-2;
+        color: $color-grey-dark-1;
+        border: none;
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 2rem;
+        outline: none;
+        text-transform: uppercase;
+        &:hover {
+            transition: .2s ease-in-out 0s;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+
+    &__err {
+        color: $color-red;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        text-transform: uppercase;
+        height: 2rem;
+    }
+
+    &__select {
+        color: $color-white;
+        background-color: $color-grey-dark-2;
+        min-width: 16rem;
+        height: 4rem;
+        font-size: 1.8rem;
+        border: 2px solid $color-white;
+        outline: none;
+        font-family: inherit;
+        text-transform: uppercase;
+        margin: .25rem; 
+
+        &-small {
+            color: $color-white;
+            background-color: $color-grey-dark-2;
+            min-width: 16rem;
+            height: 2.5rem;
+            font-size: 1.6rem;
+            border: 2px solid $color-white;
+            outline: none;
+            font-family: inherit;
+            text-transform: uppercase;
+            margin: .25rem; 
+        }
+    }
+    
+    &__option {
+        border: none;
+        display: flex;
+        height: 4rem;
+
+        &-small {
+            border: none;
+            display: flex;
+            height: 2rem;
+        }
+    }
+}
+
+

@@ -11,6 +11,7 @@ import Notes from './Notes/Notes';
 import Weather from './Weather/Weather';
 import Links from './Links/Links';
 import Graphs from './Graphs/Graphs';
+import ReactCalendar from './Calendar/ReactCalendar';
 
 import { url } from '../url';
 
@@ -49,7 +50,7 @@ class MainPage extends React.Component {
                         <Navbar />
                     </div>
                     <div className='mainpage__calendar'>
-                        Calendar
+                        <ReactCalendar />
                     </div>
                     <div className='mainpage__graph'>
                         <Graphs />

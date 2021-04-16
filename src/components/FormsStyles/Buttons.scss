@@ -1,12 +1,14 @@
 @import '../App.scss';
 
 .btn__primary {
-    height: 3rem;
+    min-height: 3rem;
     width: 8rem;
     font-size: 1.4rem;
     font-weight: 600;
     border: none;
     outline: none;
+    margin: 0.2rem;
+    padding: 0.2rem;
     &-white {
         background-color: $color-white;
     }
@@ -59,7 +61,6 @@
         transform: scale(1.05);
         cursor: pointer;
     }
-
 }
 
 .btn__small-circle {
@@ -76,4 +77,22 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+.btn__submit {
+    background-color: $color-grey-dark-2;
+    color: $color-white;
+    height: 3rem;
+    width: 16rem;
+    border: 2px solid $color-white;
+    font-size: 1.8rem;
+    font-family: inherit;
+    text-transform: uppercase;
+    margin: .5rem;
+
+    &:hover {
+        transition: all .2s;
+        transform: scale(1.05);
+        cursor: pointer;
+    }
 }

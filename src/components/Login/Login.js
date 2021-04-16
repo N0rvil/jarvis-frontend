@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-import './../FormsStyles/Froms.scss';
+import './../FormsStyles/Forms.scss';
 
 import history from '../../history'
 

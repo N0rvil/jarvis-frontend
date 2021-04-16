@@ -1,5 +1,5 @@
 import React from 'react';
-import './../FormsStyles/Froms.scss';
+import './../FormsStyles/Forms.scss';
 import history from '../../history'
 import axios from 'axios';
 

@@ -5,6 +5,7 @@ import { Line } from 'react-chartjs-2'
 import { url } from '../../url';
 
 import './Graphs.scss';
+import '../../FormsStyles/Forms.scss';
 
 class Graphs extends React.Component {
 
@@ -60,7 +61,7 @@ class Graphs extends React.Component {
 
     setInterval(() => { 
         this.getCryptoData(this.state.crypto);
-     }, 1000 * 60);
+     }, 1000 * 30);
   }
 
     render() {
@@ -75,8 +76,8 @@ class Graphs extends React.Component {
                             label: this.state.crypto.toUpperCase(),
                             data: this.state.values,
                             fill: true,
-                            backgroundColor: "rgba(75,192,192,0.2)",
-                            borderColor: "rgba(75,192,192,1)"
+                            backgroundColor: "rgba(80, 80, 197, 0.3)",
+                            borderColor: "rgba(80, 80, 197, 0.8)"
                           },
                 
                         ]
@@ -87,15 +88,15 @@ class Graphs extends React.Component {
                 <div className='graphs__data'>
                     <form className='graphs__data-form' id='crypto-form'>
                     <h2 className='graphs__data-header'>Select</h2>
-                        <select className='graphs__data-select' name="crypto" id="select-crypto" value={this.state.crypto} onChange={(e) => {this.getSelectedCrypto(e, e.target.value); this.getCryptoData(e.target.value)}}>
-                            <option className='graphs__data-option' value="bitcoin">Bitcoin</option>
-                            <option className='graphs__data-option' value="ethereum">Ethereum</option>
-                            <option className='graphs__data-option' value="dogecoin">Dogecoin</option>
+                        <select className='form__select' name="crypto" id="select-crypto" value={this.state.crypto} onChange={(e) => {this.getSelectedCrypto(e, e.target.value); this.getCryptoData(e.target.value)}}>
+                            <option className='form__option' value="bitcoin">Bitcoin</option>
+                            <option className='form__option' value="ethereum">Ethereum</option>
+                            <option className='form__option' value="dogecoin">Dogecoin</option>
                         </select>
-                        <select className='graphs__data-select' name="time" id="select-time" value={this.state.time} onChange={(e) => this.getSelectedCrypto(e, e.target.value)}>
-                            <option className='graphs__data-option' value={1}>1 Day</option>
-                            <option className='graphs__data-option' value={30}>30 Days</option>
-                            <option className='graphs__data-option' value={365}>1 Year</option>
+                        <select className='form__select' name="time" id="select-time" value={this.state.time} onChange={(e) => this.getSelectedCrypto(e, e.target.value)}>
+                            <option className='form__option' value={1}>1 Day</option>
+                            <option className='form__option' value={30}>30 Days</option>
+                            <option className='form__option' value={365}>1 Year</option>
                         </select>
                     </form>
                     <div className='graphs__data-info'>

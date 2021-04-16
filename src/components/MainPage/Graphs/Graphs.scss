@@ -39,25 +39,6 @@
             justify-content: center;
         }
 
-        &-select {
-            color: $color-white;
-            background-color: $color-grey-dark-2;
-            width: 16rem;
-            height: 4rem;
-            font-size: 1.8rem;
-            border: 2px solid $color-white;
-            outline: none;
-            font-family: inherit;
-            text-transform: uppercase;
-            
-        }
-
-        &-option {
-            border: none;
-            display: flex;
-            height: 4rem;
-        }
-
         &-info {
             height: 55%;
             display: flex;
