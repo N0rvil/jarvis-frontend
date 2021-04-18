@@ -35,11 +35,11 @@ class App extends React.Component {
         })
         .then(response =>  {
          if (response.data.note === 'verified') {
-                this.props.checkLogin(true);
+                // this.props.checkLogin(true);
                 this.setState({ isLoged: true });
                 // history.replace('/main-page');
             } else {
-                this.props.checkLogin(false);
+                // this.props.checkLogin(false);
                 this.setState({ isLoged: false });
                // history.replace('/login');
             }

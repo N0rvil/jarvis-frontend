@@ -2,10 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import ReCAPTCHA from 'react-google-recaptcha';
-import NavbarLanding from '../NavbarLanding/NavbarLanding.js';
+
 
 import './../FormsStyles/Forms.scss';
 import './Login.scss';
+
+import NavbarLanding from '../NavbarLanding/NavbarLanding';
+import NotFoundLoged from '../NotFound/NotFoundLoged';
 
 import history from '../../history'
 
@@ -79,7 +82,7 @@ class Login extends React.Component {
 
     render() {
         if (this.state.isLoged === true) {
-            return ( <div>Not Found</div> ) 
+            return ( <NotFoundLoged /> ) 
         } else {
             return (
                 <div className='login' style={{backgroundImage: "url(/images/background.jpg)", backgroundepeat: 'no-repeat', backgroundSize: 'cover'}} >
