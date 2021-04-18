@@ -9,7 +9,12 @@ import './App.scss';
 import MainPage from './MainPage/MainPage';
 import Register from './Register/Register';
 import Login from './Login/Login';
-import NotFound from './NotFound/404';
+import LandingPage from './LandingPage/LandingPage';
+import About from './About/About';
+import VerifyEmail from './VerifyEmail/VerifyEmail';
+
+import NotFoundNoLoged from './NotFound/NotFoundNoLoged';
+import NotFoundLoged from './NotFound/NotFoundLoged';
 
 import { checkLogin } from '../actions';
 
@@ -20,6 +25,7 @@ import { url } from './url'
 
 
 class App extends React.Component {
+    state = { isLoged: false };
 
   checkLoginReq() {  
          axios({
@@ -30,13 +36,19 @@ class App extends React.Component {
         .then(response =>  {
          if (response.data.note === 'verified') {
                 this.props.checkLogin(true);
-                history.replace('/main-page') ;
+                this.setState({ isLoged: true });
+                // history.replace('/main-page');
             } else {
                 this.props.checkLogin(false);
-                history.replace('/login');
+                this.setState({ isLoged: false });
+               // history.replace('/login');
             }
         })
         .catch(err => console.log(err));
+    }
+
+    refresh() {
+        window.location.reload()
     }
 
     componentDidMount() {        
@@ -44,16 +56,16 @@ class App extends React.Component {
     }
     
     render() {
-            
         // Routes for loged users 
-        if (this.props.login === true) {
+        if (this.state.isLoged === true) {
             return (
                 <div className='ui container'>
                     <Router history={history}>
                         <div>
                             <Switch>
+                                <Route path='/login' exact component={Login} />
                                 <Route path='/main-page' exact component={MainPage} />
-                                <Route component={NotFound} />
+                                <Route component={NotFoundLoged} />
                             </Switch>
                         </div>
                     </Router>
@@ -66,12 +78,14 @@ class App extends React.Component {
                     <Router history={history}>
                         <div>
                             <Switch>
-                                <Route path='/main-page' exact component={MainPage} /> 
+                                <Route path='/main-page' exact component={MainPage} />
+                                <Route path='/' exact component={LandingPage} />
                                 <Route path='/register' exact component={Register} />
-                                <Route path='/' exact component={Login} />
+                                <Route path='/about' exact component={About} />
                                 <Route path='/login' exact component={Login} />
                                 <Route path='/login?' exact component={Login} />
-                                <Route component={NotFound} />
+                                <Route path='/verifyemail' exact component={VerifyEmail} />
+                                <Route component={NotFoundNoLoged} />
                             </Switch>
                         </div>
                     </Router>

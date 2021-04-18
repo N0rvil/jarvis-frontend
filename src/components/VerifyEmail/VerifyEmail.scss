@@ -1,0 +1,24 @@
+@import '../App.scss';
+
+.verifyemail {
+    height: 100vh;
+
+    &__box {
+        text-align: center;
+        margin-top: 27rem;
+        color: $color-white;
+    }
+
+    &__header {
+        font-size: 6rem;
+    }
+
+    &__text {
+        font-size: 3rem;
+    }
+
+    &__link  {
+        font-size: 3rem;
+        color: $color-red;
+    }
+}

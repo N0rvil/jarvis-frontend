@@ -1,0 +1,17 @@
+.notfound {
+    text-align: center;
+    padding: 10rem;
+    &__header {
+        font-size: 6rem;
+        text-transform: uppercase;
+    }
+
+    &__link {
+        text-align: center;
+        font-size: 4rem;
+    }
+
+    &__icon {
+        height: 20rem;
+    }
+}

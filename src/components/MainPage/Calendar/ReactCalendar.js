@@ -145,22 +145,24 @@ const ReactCalendar = () => {
   }
 
   const renderEvents = () => {
-    return events.map((event, i) => {
-      return(
-        <li className='calendar__events-item' key={i}>
-          <div>
-            <h2 className='calendar__events-name'>{event.eventName}</h2> 
-            <h4 className='calendar__events-repeated'>{ event.repeat === 'norepeat' ? 'no repeated' : `${event.repeat} repeated`}</h4>
-          </div>
-            <p className='calendar__events-description'>{event.description}</p>     
-          <div className='calendar__events-time'>
-            <h3 className='calendar__events-from'>From: {event.from}</h3>
-            <h3 className='calendar__events-to'>To: {event.to}</h3>
-            <div>{renderDeletePopup(event.repeat, event.id)}</div>
-          </div>
-        </li>
-      )
-    })
+    if (events) {
+      return events.map((event, i) => {
+        return(
+          <li className='calendar__events-item' key={i}>
+            <div>
+              <h2 className='calendar__events-name'>{event.eventName}</h2> 
+              <h4 className='calendar__events-repeated'>{ event.repeat === 'norepeat' ? 'no repeated' : `${event.repeat} repeated`}</h4>
+            </div>
+              <p className='calendar__events-description'>{event.description}</p>     
+            <div className='calendar__events-time'>
+              <h3 className='calendar__events-from'>From: {event.from}</h3>
+              <h3 className='calendar__events-to'>To: {event.to}</h3>
+              <div>{renderDeletePopup(event.repeat, event.id)}</div>
+            </div>
+          </li>
+        )
+      })
+    }
   }
 
   return (
