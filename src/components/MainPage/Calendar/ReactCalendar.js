@@ -23,6 +23,7 @@ const ReactCalendar = () => {
   const [daysWithEvents, setDaysWithEvents] = useState([]);
 
   const getEvents = (putedDate) => {
+    console.log('getting event')
     axios({
       method: 'POST',
       url: `${url}/getevents`,
@@ -148,9 +149,6 @@ const ReactCalendar = () => {
   }
 
   const renderEvents = () => {
-    if (events.length === 0) {
-      return <h3 className='calendar__events-no'>No events</h3>
-    } else {
       return events.map((event, i) => {
         return(
           <li className='calendar__events-item' key={i}>
@@ -170,7 +168,6 @@ const ReactCalendar = () => {
           </li>
         )
       })
-    }
   }
 
   return (
