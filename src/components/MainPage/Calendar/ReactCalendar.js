@@ -47,7 +47,11 @@ const ReactCalendar = () => {
   }
   
   useEffect(() => { 
-    getEvents(date); 
+    const currentDate = new Date(date);
+    const tomorrow = new Date(currentDate);
+    tomorrow.setDate(currentDate.getDate()+1);
+
+    getEvents(tomorrow); // bacause of heroku servers i have to add one day to fetch right data
     getDaysWithEvents(date);
   }, []);  // eslint-disable-line react-hooks/exhaustive-deps
           // removing the warning because its stupid :)
