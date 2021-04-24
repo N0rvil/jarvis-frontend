@@ -66,6 +66,12 @@ class Links extends React.Component {
                     <LoadingNormal />
                 </div>
             )
+        } else if (this.state.categories[0] === 'no-links') {
+            return (
+                <div className='categorylist'>
+                    <h2 className='links__no'>No links</h2>
+                </div>
+            ) 
         } else {
             const categories = this.state.categories.map((category ,i) => {
                 return (  

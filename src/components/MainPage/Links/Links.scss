@@ -5,6 +5,15 @@
     background-color: $color-grey-primary;
     padding: 1rem;
 
+    &__no {
+        height: 100%;
+        font-size: 3rem;
+        color: $color-yellow-primary;   
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     &__add-btn {
         margin-top: 1rem;
         margin-left: auto;
