@@ -23,7 +23,6 @@ const ReactCalendar = () => {
   const [daysWithEvents, setDaysWithEvents] = useState([]);
 
   const getEvents = (putedDate) => {
-    console.log('getting event')
     axios({
       method: 'POST',
       url: `${url}/getevents`,
@@ -42,6 +41,7 @@ const ReactCalendar = () => {
       data: { cookies: Cookies.get(), date: putedDate },
     })
     .then(response => {
+      console.log(response.data.daysWithEvents)
       setDaysWithEvents(response.data.daysWithEvents);
     })
     .catch(err => console.log(err))
@@ -49,11 +49,11 @@ const ReactCalendar = () => {
   
   useEffect(() => { 
     const currentDate = new Date(date);
-    const tomorrow = new Date(currentDate);
+    let tomorrow = new Date(currentDate);
     tomorrow.setDate(currentDate.getDate()+1);
 
     getEvents(tomorrow); // bacause of heroku servers i have to add one day to fetch right data
-    getDaysWithEvents(date);
+    getDaysWithEvents();
   }, []);  // eslint-disable-line react-hooks/exhaustive-deps
           // removing the warning because its stupid :)
   
@@ -80,7 +80,7 @@ const ReactCalendar = () => {
       data: { cookies: Cookies.get(), date: date, eventName, description, repeat, from, to  },
     })
     .then(response => {     
-      console.log(response.data.events)
+      console.log(response.data.daysWithEvents)
       setNote(response.data.note);
       setEvents(response.data.events);
       setDaysWithEvents(response.data.daysWithEvents);
@@ -88,7 +88,7 @@ const ReactCalendar = () => {
       setDescription('');
       setFrom('00:00');
       setTo('23:59');
-      setRepeat('');
+      setRepeat('norepeat');
       setTimeout(() => {
         setNote('');
       }, 2000);     
@@ -111,7 +111,7 @@ const ReactCalendar = () => {
         data: { cookies: Cookies.get(), eventId: id, date }
       })
       
-      .then( response =>  {
+      .then(response =>  {
         setEvents(response.data.events);
         setDaysWithEvents(response.data.daysWithEvents);
       })
