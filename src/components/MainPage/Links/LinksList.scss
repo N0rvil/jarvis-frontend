@@ -1,75 +1,51 @@
 @import '../../App.scss';
 
-.links__list-box{
+.linkslist {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-right: 1rem;
+  margin-left: 2rem;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90rem;
+  }
+
+  &__item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    
-    background-color: $color-grey-light-1;
-    padding: 1rem;
-    &--links {
-        width: 66rem;
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
-
-
-.links__list-item {
-    color: $color-black;
     height: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2rem;
-    border: 2px solid $color-black;
-    text-decoration: none;
-    margin: 0.5rem;
-    padding: 0.5rem;
-}
+    min-width: 10rem;
+    max-width: 40rem;
+    margin: .5rem;
+    border: 2px solid $color-yellow-primary;
+    overflow: hidden;
 
-.links__list-link {
-    color: $color-black;
-    word-wrap: break-word;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.6rem;
-    font-weight: 900;
-    text-decoration: none;
-    margin-right: 1rem;
-}
-
-.addlink-popup-content {
-    margin: auto;
-    width: 40%;
-    padding: 5px;
-    height: 14rem;
-  }
-
-  [role='tooltip'].addlink-popup-content {
-    width: 16rem; 
-  }
-
-.delete-popup-content {
-    margin: auto;
-    width: 40%;
-    padding: 5px;
-    height: 8rem;
-  }
-
-  [role='tooltip'].delete-popup-content {
-    width: 16rem; 
-  }
-
-.delete-popup {
-    &__header {
-        text-align: center;
-        margin-bottom: 1rem;
+    &-link {
+      text-decoration: none;
+      font-size: 1.6rem;
+      color: $color-black;
+      font-weight: 700;
+      margin: auto auto auto 0.5rem;
+      max-width: 36rem;
+      padding-right: .2rem;
     }
-
-    &__box {
-        text-align: center;
-    }
+  }
 }
+
+.linkslist__popup-addlink {
+  height: 100%;
+  &--form {
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
 

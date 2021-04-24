@@ -1,0 +1,63 @@
+@import '../../App.scss';
+
+.loadingpage {
+    height: 100vh;
+    background-color: $color-grey-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__loader {
+      border: 5rem solid $color-grey-primary; 
+      border-top: 5rem solid $color-yellow-primary; 
+      border-left: 5rem solid $color-yellow-primary; 
+      border-bottom: 5rem solid $color-yellow-primary; 
+      border-radius: 50%;
+      width: 20rem;
+      height: 20rem;
+      animation: spin 2s linear infinite;
+  }
+}
+
+.loadingnormal {
+  background-color: $color-grey-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  &__loader {
+    border: 2.5rem solid $color-grey-primary; 
+    border-top: 2.5rem solid $color-yellow-primary; 
+    border-left: 2.5rem solid $color-yellow-primary; 
+    border-bottom: 2.5rem solid $color-yellow-primary; 
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    animation: spin 2s linear infinite;
+  }
+}
+
+.loadingsmall {
+  background-color: $color-grey-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  &__loader {
+    border: 1.5rem solid $color-grey-primary; 
+    border-top: 1.5rem solid $color-yellow-primary; 
+    border-left: 1.5rem solid $color-yellow-primary; 
+    border-bottom: 1.5rem solid $color-yellow-primary; 
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    animation: spin 2s linear infinite;
+  }
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

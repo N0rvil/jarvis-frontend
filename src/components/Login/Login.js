@@ -3,19 +3,19 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-
-import './../FormsStyles/Forms.scss';
-import './Login.scss';
-
-import NavbarLanding from '../NavbarLanding/NavbarLanding';
-import NotFoundLoged from '../NotFound/NotFoundLoged';
-
 import history from '../../history'
-
 import { url } from '../url';
 
+import Navbar from '../Navbar/Navbar';
+import NotFoundLoged from '../Error/NotFound/NotFound';
+import LoadingBig from '../Error/Loading/LoadingPage';
+
+import './../styles/Forms.scss';
+import './../styles/Buttons.scss';
+import './Login.scss';
+
 class Login extends React.Component {
-    state = { email: '', password: '', authentication: '' , url: document.URL, isHuman: false, isLoged: false};
+    state = { email: '', password: '', authentication: '' , url: document.URL, isHuman: false, isLoged: null};
 
     isHuman() {
         this.setState({ isHuman: true });
@@ -47,7 +47,7 @@ class Login extends React.Component {
             })
             .then(async response => {
                 if (response.data.note === 'success') {
-                    const expireTime = 4/48; //2 HOURS
+                    const expireTime = 4/48 * 12; //24 HOURS
                     await Cookies.set('loged', { id: response.data.id, username: response.data.username, hash: response.data.hash, time: response.data.time, }, { expires: expireTime })                       
                         history.replace('/main-page'); 
                     cb();
@@ -82,20 +82,23 @@ class Login extends React.Component {
 
     render() {
         if (this.state.isLoged === true) {
-            return ( <NotFoundLoged /> ) 
+            return <NotFoundLoged /> 
+        } else if (this.state.isLoged === null) {
+            return <LoadingBig />  
         } else {
             return (
-                <div className='login' style={{backgroundImage: "url(/images/background.jpg)", backgroundepeat: 'no-repeat', backgroundSize: 'cover'}} >
-                    <NavbarLanding />
+                <div className='login'>
+                    <Navbar />
                         <form className='form login__form'  onSubmit={this.handleSubmit.bind(this)} >
                             <label className='form__header'>login</label>
                             <input className='form__input' type='text' value={this.state.email} onChange={e => this.setState({ email: e.target.value })} placeholder='e-mail' />
                             <input className='form__input' type='password' value={this.state.password} onChange={e => this.setState({ password: e.target.value })} placeholder='password' />
                             <div className='form__err'>{this.state.authentication}</div>
                             <div className='login__box'>
-                                <button className='form__button' type='submit' value='login' >Log in</button>
+                                <button className='btn__yellow-medium' type='submit' value='login' >Log in</button>
                             </div>
                             <ReCAPTCHA
+                                className='login__recaptcha'
                                 sitekey={'6LdXoK0aAAAAACPca7iNEjuhfjlh-h6FzCEkyxl-'}
                                 onChange={() => this.isHuman()}
                             />

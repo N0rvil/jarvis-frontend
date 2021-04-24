@@ -2,13 +2,14 @@
 
 
 .weather {
-    background-color: $color-grey-light-1;
+    background-color: $color-grey-primary;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    color: $color-white;
     &__town {
         font-size: 4rem;
 

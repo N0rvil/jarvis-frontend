@@ -1,16 +1,17 @@
 @import '../../App.scss';
 
 .graphs {
-    background-color: $color-grey-light-1;
+    background-color: $color-grey-primary;
     height: 100%;
     width: 100%;
-    padding: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-left: 3px solid $color-yellow-primary;
 
     &__graph {
         height: 100%;
-        width: 79.5%;
+        width: 100%;
     }
 
     &__lable {
@@ -19,15 +20,15 @@
     }
 
     &__data {
-        background-color: $color-grey-dark-2;
+        background-color: inherit;
         color: $color-white;
         height: 100%;
-        width: 19.5%;
+        width: 20rem;
         
-    
         &-header {
             font-size: 2rem;
             font-weight: 500;
+            text-transform: uppercase;
         }
 
         &-form {
@@ -48,8 +49,9 @@
         }
 
         &-price {
-            font-size: 2rem;
+            font-size: 2.8rem;
             font-weight: 900;
+            color: $color-yellow-primary;
         }
 
         &-change {

@@ -2,6 +2,7 @@
 
 .verifyemail {
     height: 100vh;
+    background-color: $color-grey-primary;
 
     &__box {
         text-align: center;
@@ -13,12 +14,16 @@
         font-size: 6rem;
     }
 
+    &__icon {
+        height: 10rem;
+    }
+
     &__text {
         font-size: 3rem;
     }
 
     &__link  {
         font-size: 3rem;
-        color: $color-red;
+        color: $color-yellow-primary;
     }
 }

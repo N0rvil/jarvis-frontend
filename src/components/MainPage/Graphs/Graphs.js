@@ -4,8 +4,10 @@ import { Line } from 'react-chartjs-2'
 
 import { url } from '../../url';
 
+import LoadingNormal from '../../Error/Loading/LoadingNormal';
+
 import './Graphs.scss';
-import '../../FormsStyles/Forms.scss';
+import '../../styles/Forms.scss';
 
 class Graphs extends React.Component {
 
@@ -54,6 +56,7 @@ class Graphs extends React.Component {
         .catch(err => console.log(err));
     }
 
+    
 
   componentDidMount() {
     this.getCrypto();
@@ -68,7 +71,7 @@ class Graphs extends React.Component {
         return (
             <div className='graphs'>
                 <div className='graphs__graph'>
-                <Line
+                {this.state.values.length > 0 ? <Line
                     data={{
                         labels: this.state.labels,
                         datasets: [
@@ -76,18 +79,54 @@ class Graphs extends React.Component {
                             label: this.state.crypto.toUpperCase(),
                             data: this.state.values,
                             fill: true,
-                            backgroundColor: "rgba(80, 80, 197, 0.3)",
-                            borderColor: "rgba(80, 80, 197, 0.8)"
+                            backgroundColor: "rgba(255, 230, 0, 0.3)",
+                            borderColor: "rgba(255, 230, 0, 0.8)",
                           },
-                
                         ]
                     }}
-                    options={{ maintainAspectRatio: false }} 
-                />
+                    options={{ 
+                        maintainAspectRatio: false,
+                        legend: {
+                            labels: {
+                                fontColor: "white",
+                                fontSize: 18
+                            }
+                        },
+                        scales: {
+                            yAxes: [
+                              {
+                                gridLines: {
+                                    zeroLineColor: "white",
+                                    color: "rgba(255, 255, 255, 0)",
+                                },
+                                ticks: {
+                                  fontColor: "white",
+                                  fontSize: 15,
+                                  fontStyle: "bold"
+                                }
+                              }
+                            ],
+                            xAxes: [
+                              {
+                                gridLines: {
+                                    drawBorder: true,
+                                    color: "rgba(255, 255, 255, 0)",
+                                    zeroLineColor: "rgba(255, 255, 255, 0.4)"
+                                },
+                                ticks: {
+                                  fontColor: "white",
+                                  fontSize: 12,
+                                  fontStyle: "bold"
+                                }
+                              }
+                            ]
+                          },
+                     }} 
+                /> : <LoadingNormal /> }
+                
                 </div>
                 <div className='graphs__data'>
                     <form className='graphs__data-form' id='crypto-form'>
-                    <h2 className='graphs__data-header'>Select</h2>
                         <select className='form__select' name="crypto" id="select-crypto" value={this.state.crypto} onChange={(e) => {this.getSelectedCrypto(e, e.target.value); this.getCryptoData(e.target.value)}}>
                             <option className='form__option' value="bitcoin">Bitcoin</option>
                             <option className='form__option' value="ethereum">Ethereum</option>

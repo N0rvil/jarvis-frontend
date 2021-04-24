@@ -1,10 +1,11 @@
 @import '../App.scss';
 
 .landingpage {
-    height: 100vh;
+    min-height: 100vh;
+    background-color: $color-grey-primary;
 
     &__box {
-        margin-top: 20rem;
+        margin-top: 15rem;
         text-align: center;
     }
 
@@ -18,7 +19,7 @@
     &__line {
         height: 1rem;
         width: 70vw;
-        background-color: $color-white;
+        background-color: $color-yellow-primary;
         margin: 0 auto 2rem auto;
     }
 
@@ -30,9 +31,24 @@
         font-weight: 300;
     }
 
+    &__images {
+        width: 80%;
+        margin-top: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 4rem auto 0 auto;
+    }
+
+    &__dotes {
+        color: $color-yellow-primary;
+        font-size: 6rem;
+    }
+
     &__icon {
         height: 20rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 }

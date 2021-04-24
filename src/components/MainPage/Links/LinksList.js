@@ -5,11 +5,12 @@ import Popup from 'reactjs-popup';
 import { url } from '../../url';
 
 import './LinksList.scss';
-import '../../FormsStyles/Buttons.scss';
+import '../../styles/Buttons.scss';
+import '../../styles/Forms.scss';
 
 
 class Links extends React.Component {
-    state = { links: [], categoryId: this.props.categoryId, linkName: '', url: '', color: '#DACFCF', deleteActive: false, createActive: false }
+    state = { links: [], categoryId: this.props.categoryId, linkName: '', url: '', color: '#272727', deleteActive: false, createActive: false }
 
    async getLinks(categoryId) {
         await axios({
@@ -22,6 +23,10 @@ class Links extends React.Component {
              
         })
         .catch(err => console.log(err));
+    }
+
+    hexToRgb(hex) {
+        return ['0x' + hex[1] + hex[2] | 0, '0x' + hex[3] + hex[4] | 0, '0x' + hex[5] + hex[6] | 0];
     }
 
     createLink(e) {
@@ -53,31 +58,31 @@ class Links extends React.Component {
     }
     
     renderLinks() {
-        const link = this.state.links.map((link, i) => {
+        const links = this.state.links.map((link, i) => {
             return (
-                <div className='links__list-item'  style={{backgroundColor: link.color}}  key={i}>
-                    <a className='links__list-link' href={link.url}>{link.linkName}</a>
-                    <Popup open={this.state.deleteActive} className='delete-popup'  trigger={<button className='btn__small-circle'>X</button>} position="top center">
-                        <div>
-                            <h2 className='delete-popup__header'>Are you sure ?</h2>
-                            <div className='delete-popup__box'>
-                                <button className='btn__primary btn__primary-red delete-popup__btn'  onClick={(e) => this.deleteLink(e, link.id)} >Yes delete</button>
-                            </div>
+                <li className='linkslist__item' style={{backgroundColor: `rgba(${this.hexToRgb(link.color)}, 0.6)`}}  key={i}>
+                    <a className='linkslist__item-link' href={link.url}>{link.linkName}</a>
+
+                    <Popup open={this.state.deleteActive} className='delete-popup'  trigger={<button className='btn__delete-small'>X</button>} position="top center">
+                        <div className='popup__delete'>
+                            <h2 className=''>Are you sure ?</h2>
+                            <button className='btn__delete-popup'  onClick={(e) => this.deleteLink(e, link.id)} >Yes delete</button>
                         </div>
                     </Popup>
-                </div>
+                </li>
             )
         })
         return (
-            <div className='links__list-box'>
-                <div className='links__list-box--links'>{link}</div>
-                <Popup open={this.state.createActive} className='addlink-popup' trigger={<button className='categorylist__btn btn__circle btn__circle-grey'>+</button>} position="top center">
-                    <div className='popup__links-addlink'>
-                            <form className='popup__links-addlink--form' onSubmit={this.createLink.bind(this)}>
-                                <input className='popup__input popup__links-addlink--input' placeholder='Link name' value={this.state.linkName} onChange={e => this.setState({ linkName: e.target.value })} />
-                                <input className='popup__input popup__links-addlink--input' placeholder='Url' value={this.state.url} onChange={e => this.setState({ url: e.target.value })} />
-                                <input className='popup__input popup__links-addlink--input' type='color' value={this.state.color} onChange={e => this.setState({ color: e.target.value })} />
-                                <button className='btn__primary btn__primary-white' type='submit' onClick={() => this.setState({ createActive: true })}>Add link</button>
+            <div className='linkslist'>
+                <ul className='linkslist__list'>{links}</ul>
+
+                <Popup open={this.state.createActive} className='addlink-popup' trigger={<button className='btn__add'>+</button>} position="top center">
+                    <div className='linkslist__popup-addlink'>
+                            <form className='linkslist__popup-addlink--form' onSubmit={this.createLink.bind(this)}>
+                                <input className='input__popup-small' placeholder='Link name' value={this.state.linkName} onChange={e => this.setState({ linkName: e.target.value })} />
+                                <input className='input__popup-small' placeholder='Url' value={this.state.url} onChange={e => this.setState({ url: e.target.value })} />
+                                <input className='input__popup-small' type='color' value={this.state.color} onChange={e => this.setState({ color: e.target.value })} />
+                                <button className='btn__add-popup' type='submit' onClick={() => this.setState({ createActive: true })}>Add link</button>
                             </form>
                     </div>
                 </Popup>
@@ -93,10 +98,8 @@ class Links extends React.Component {
   
 
     render() { 
-        
-        return (       
-            <div>{this.renderLinks()}</div>
-        )        
+        return this.renderLinks()
+                
     }
 };   
 

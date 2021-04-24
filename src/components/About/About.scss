@@ -1,14 +1,35 @@
 @import '../App.scss';
 
 .about {
-    &__container {
-        height: 100vh;
-        background-color: $color-blue-1;
+    background-color: $color-grey-primary;
+    padding-bottom: 5rem;
+    &__versions {
+        background-color: $color-grey-primary;
+        text-align: center;
+        list-style: none;
 
+        &-box {
+            margin-top: 4rem;
+        }
+
+        &-list {
+            font-size: 2rem;
+            font-weight: 700;
+            color: $color-white;
+            list-style: none;
+        }
+    }
+    &__container {
+        height: 70vh;
+        background-color: $color-grey-primary;
+        &-yellow {
+            background-color: $color-yellow-primary;
+            color: $color-grey-primary;
+        }
     }
 
     &__part { 
-        height: 90vh;
+        height: 70vh;
         width: 70vw;
         display: flex;
         justify-content: space-between;
@@ -19,6 +40,24 @@
     &__header {
         font-size: 6rem;
         color: $color-white;
+
+        &-small {
+            font-size: 4rem;
+            color: $color-white;
+        }
+
+        &-center {
+            text-align: center;
+        }
+
+        &-grey {
+            color: $color-grey-primary;
+        }
+    }
+
+    &__text {
+        font-size: 2rem;
+        color: $color-white;
     }
 
     &__list {
@@ -26,13 +65,17 @@
         font-weight: 700;
         padding-left: 4rem;
         color: $color-white;
+
+        &-grey {
+            color: $color-grey-primary;
+        }
         &-item {
             margin-bottom: .5rem;
         }
     }
 
     &__icon-big {
-        height: 50rem;
+        height: 40rem;
     }
 
     &__icon-small {
@@ -43,5 +86,7 @@
     &__icon-box {
         text-align: center;
         width: 60rem;
+        border: 5px solid $color-grey-primary;
+        
     }
 }

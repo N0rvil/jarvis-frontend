@@ -1,14 +1,21 @@
+@import '../../App.scss';
+
 .notfound {
+    min-height: 100vh;
     text-align: center;
-    padding: 10rem;
+    background-color: $color-grey-primary;
+    color: $color-white;
+
     &__header {
         font-size: 6rem;
         text-transform: uppercase;
+        margin-top: 20rem;
     }
 
     &__link {
         text-align: center;
         font-size: 4rem;
+        color: $color-white;
     }
 
     &__icon {

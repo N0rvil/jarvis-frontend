@@ -4,6 +4,8 @@
 $color-black: #000;
 $color-white: #FFF;
 
+$color-grey-primary: #272727;
+
 $color-grey-dark-1: #3E3E3E;
 $color-grey-dark-2: #7B7777;
 
@@ -25,6 +27,8 @@ $color-red: rgb(206, 0, 0);
 
 $color-orange: rgb(255, 163, 25);
 
+$color-yellow-primary: #FFE600;
+
 //font sizes
 $font-size-header-big: 6rem;
 
@@ -33,7 +37,7 @@ $font-size-normal: 1.6rem;
 
 
 //fonts
-$font-basic:'Orbitron', sans-serif;
+$font-basic: 'Roboto', sans-serif;
 $font-secondary: 'Arimo', sans-serif;
 
 * {
@@ -56,6 +60,36 @@ body {
     font-weight: 400;
     line-height: 1.6;
     color: $color-black;
+    text-rendering: optimizeLegibility;
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+}
+    
+::-webkit-scrollbar-track {
+    background: $color-black; 
+}
+     
+::-webkit-scrollbar-thumb {
+     background: $color-yellow-primary; 
+}
+    
+::-webkit-scrollbar-thumb:hover {
+    background: $color-yellow-primary; 
+}
+
+.popup-content {
+  margin: auto;
+  background: $color-grey-primary;
+  border: 2px solid $color-yellow-primary;
+  padding: 5px;
+}
+.popup-arrow {
+  color: $color-yellow-primary;
+}
+[role='tooltip'].popup-content {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
 }
 
   

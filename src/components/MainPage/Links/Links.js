@@ -3,13 +3,14 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import Popup from 'reactjs-popup';
 
-// import history from '../../history';
-
 import { url } from '../../url';
+
 import LinksList from './LinksList';
+import LoadingNormal from '../../Error/Loading/LoadingNormal';
 
 import './Links.scss';
-import '../../FormsStyles/Buttons.scss';
+import '../../styles/Buttons.scss';
+import '../../styles/Forms.scss';
 
 
 class Links extends React.Component {
@@ -54,57 +55,52 @@ class Links extends React.Component {
         .catch(err => console.log(err))
     }
 
-      
-      
-
     componentDidMount() {
         this.getCategories();
     }
 
     renderCategories() {
-        const category = this.state.categories.map((category ,i) => {
-            return (  
-                <li  key={i} className='categorylist__item'>
-                    <div className='categorylist__item-box'>
-                        <Popup  className='delete-popup'  trigger={<button className='btn__small-circle categorylist__item-btn'>X</button>} position="top center">
-                            <div>
-                                <h2 className='delete-popup__header'>Are you sure ?</h2>
-                                <div className='delete-popup__box'>
-                                    <button className='btn__primary btn__primary-red delete-popup__btn' onClick={(e) => this.deleteCategory(e, category.id)}>Yes delete</button>
-                                </div>
-                            </div>
-                        </Popup>
-                        <h2 className='categorylist__item-header'>{category.category}</h2>
-                    </div>
-                    <div className='categorylist__box'> 
-                            <LinksList categoryId={category.id} />
-                             
-                    </div>
-
-                </li>
+        if (this.state.categories.length === 0) {
+            return (
+                <div className='categorylist'>
+                    <LoadingNormal />
+                </div>
             )
-        })
-        return <ul className='categorylist'>{category}</ul>
+        } else {
+            const categories = this.state.categories.map((category ,i) => {
+                return (  
+                    <li className='categorylist__item' key={i}>
+                        <div className='categorylist__item-box'>
+                            <Popup trigger={<button className='btn__delete-small'>X</button>} position="top center">
+                                <div className='popup__delete'>
+                                    <h2 className=''>Are you sure ?</h2>                              
+                                    <button className='btn__delete-popup' onClick={(e) => this.deleteCategory(e, category.id)}>Yes delete</button>
+                                </div>
+                            </Popup>
+                            <h2 className='categorylist__item-header'>{category.category}</h2>
+                        </div>
+    
+                            <LinksList categoryId={category.id} />                              
+                    </li>
+                )
+            })
+            return <ul className='categorylist'>{categories}</ul>
+        }
     }
 
-    render() { 
-        
+    render() {    
         return (
             <div className='links'>
-                <div className='links__box'>
-                    {this.renderCategories()}
-                </div>
-                <div className='links__btn-box'>
-                <Popup open={this.state.addCategoryActive} trigger={<button className='btn__big btn__big-grey popup__btn'> Add links category +</button>} position="top center">
-                    <div className='popup__links-addcategory'>
-                            <form className='popup__links-addcategory--form' onSubmit={this.createCategory.bind(this)} >
-                                <input className='popup__input' placeholder='Category name' value={this.state.categoryName} onChange={e => this.setState({ categoryName: e.target.value })} />
-                                <button className='btn__primary btn__primary-white' type='submit'>Create category</button>
-                            </form>
+                {this.renderCategories()}
+             
+                <Popup  open={this.state.addCategoryActive} trigger={<button className='btn__add-big links__add-btn'>Add category +</button>} position="top center">
+                    <div className='links__popup-addcategory'>
+                        <form className='links__popup-addcategory--form' onSubmit={this.createCategory.bind(this)} >
+                            <input className='input__popup-small' placeholder='Category name' value={this.state.categoryName} onChange={e => this.setState({ categoryName: e.target.value })} />
+                            <button className='btn__add-popup' type='submit'>Create category</button>
+                        </form>
                     </div>
-                </Popup>
-                </div>
-                
+                </Popup>      
             </div>
         )        
     }

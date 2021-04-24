@@ -1,10 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-import './Weather.scss';
-import '../../FormsStyles/Buttons.scss'
-
 import { url } from '../../url';
+
+import LoadingNormal from '../../Error/Loading/LoadingNormal';
+
+import './Weather.scss';
+import '../../styles/Buttons.scss'
+
+
 
 class Notes extends React.Component {
 
@@ -36,19 +40,23 @@ class Notes extends React.Component {
     }
     
     render() { 
-        return (
-            <div className='weather'>
-                <h2 className='weather__town'>{this.state.town}</h2>
-                <div className='weather__box'>
-                    <img className='weather__icon' src={this.state.icon} alt='weather-icon' />
+        if (this.state.pressure === null) {
+            return <LoadingNormal />
+        } else {
+            return (
+                <div className='weather'>
+                    <h2 className='weather__town'>{this.state.town}</h2>
+                    <div className='weather__box'>
+                        <img className='weather__icon' src={this.state.icon} alt='weather-icon' />
+                    </div>
+                    <h2 className={(this.state.temperature > 0) ? 'weather__temperature weather__temperature-orange' : 'weather__temperature weather__temperature-blue'}>{this.state.temperature} °C</h2>
+                    <div className='weather__moreinfo'>
+                        <h3 className='weather__windspeed'>Wind speed: {this.state.windspeed} km/h</h3>
+                        <h3 className='weather__pressure'>Pressure: {this.state.pressure} mbar</h3>
+                    </div>
                 </div>
-                <h2 className={(this.state.temperature > 0) ? 'weather__temperature weather__temperature-orange' : 'weather__temperature weather__temperature-blue'}>{this.state.temperature} °C</h2>
-                <div className='weather__moreinfo'>
-                    <h3 className='weather__windspeed'>Wind speed: {this.state.windspeed} km/h</h3>
-                    <h3 className='weather__pressure'>Pressure: {this.state.pressure} mbar</h3>
-                </div>
-            </div>
-        )        
+            )    
+        }  
     }
 };   
 

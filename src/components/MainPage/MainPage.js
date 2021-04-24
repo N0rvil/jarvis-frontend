@@ -6,14 +6,15 @@ import axios from 'axios';
 import { getUser } from '../../actions';
 // import history from '../../history';
 
-import Navbar from './Navbar/Navbar';
-import Notes from './Notes/Notes';
+import Navbar from '../Navbar/Navbar';
+// import Notes from './Notes/Notes';
 import Weather from './Weather/Weather';
 import Links from './Links/Links';
 import Graphs from './Graphs/Graphs';
 import ReactCalendar from './Calendar/ReactCalendar';
 
-import NotFoundLoged from '../NotFound/NotFoundLoged';
+import NotFoundLoged from '../Error/NotFound/NotFound';
+import LoadingBig from '../Error/Loading/LoadingPage';
 
 import { url } from '../url';
 
@@ -21,7 +22,7 @@ import { url } from '../url';
 import './MainPage.scss';
 
 class MainPage extends React.Component {
-    state = { username: '', rememberMe: null, isLoged: false }
+    state = { username: '', rememberMe: null, isLoged: null }
 
     checkLoginReq() {  
         axios({
@@ -59,16 +60,14 @@ class MainPage extends React.Component {
    
     render() { 
         if (this.state.isLoged === false) {
-            return( <NotFoundLoged /> )
+            return <NotFoundLoged /> 
+        } else if (this.state.isLoged === null){
+            return <LoadingBig /> 
         } else {
             return (
                 <div className='mainpage'>
-                    <div className='mainpage__hello'>
-                        <h1 className='mainpage__hello-header'>hi i'am jarvis</h1>
-                        <h1 className='mainpage__hello-header'>welcome {(this.props.user) ? this.props.user : 'Loading...'}</h1>
-                    </div>
-                    <div className='mainpage__content'>
-                    <div className='mainpage__nav'>
+                    
+                        <div className='mainpage__nav'>
                             <Navbar />
                         </div>
                         <div className='mainpage__calendar'>
@@ -80,13 +79,9 @@ class MainPage extends React.Component {
                         <div className='mainpage__links'>
                             <Links />
                         </div>
-                        <div className='mainpage__notes'>
-                            <Notes />
-                        </div>
                         <div className='mainpage__weather'>
-                            <Weather />
+                            <Weather />               
                         </div>
-                    </div>
                 </div>
             )        
         }
