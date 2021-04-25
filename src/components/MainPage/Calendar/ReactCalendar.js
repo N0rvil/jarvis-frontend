@@ -17,7 +17,12 @@ class ReactCalendar extends React.Component {
 
 
   componentDidMount()  {
-    this.getEvents(this.state.date); 
+    var today = this.state.date;
+    var tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate()+1)
+    tomorrow.toLocaleDateString()
+    this.getEvents(tomorrow); // i passed here tomorrow because heroku servers have different time
+    //this.getEvents(new Date()); 
     this.getDaysWithEvents();
   }
   // eslint-disable-line react-hooks/exhaustive-deps
@@ -67,7 +72,7 @@ class ReactCalendar extends React.Component {
     axios({
       method: 'POST',
       url: `${url}/createevent`,
-      data: { cookies: Cookies.get(), date: this.state.date, eventName: this.state.eventName, description: this.state.description, repeat: this.state.repeat, from: this.state.repeat, to: this.state.to  },
+      data: { cookies: Cookies.get(), date: this.state.date, eventName: this.state.eventName, description: this.state.description, repeat: this.state.repeat, from: this.state.from, to: this.state.to  },
     })
     .then(response => {     
       this.setState({ note: response.data.note });
@@ -139,7 +144,7 @@ class ReactCalendar extends React.Component {
           <li className='calendar__events-item' key={i}>
             <div>
               <h2 className='calendar__events-name'>{event.eventName}</h2> 
-              <h4 className='calendar__events-repeated'>{ event.repeat === 'norepeat' ? 'no repeated' : `${event.repeat} repeated`}</h4>¨
+              <h4 className='calendar__events-repeated'>{event.repeat === 'norepeat' ? 'no repeated' : `${event.repeat} repeated`}</h4>¨
               <p className='calendar__events-description'>{event.description}</p>
             </div> 
             <div  className='calendar__events-info'>
