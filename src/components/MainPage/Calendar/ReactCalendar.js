@@ -26,7 +26,7 @@ const ReactCalendar = () => {
     const currentDate = new Date(date);
     let tomorrow = new Date(currentDate);
     tomorrow.setDate(currentDate.getDate()+1);
-    console.log('component was mounted')
+
     getEvents(date); // bacause of heroku servers i have to add one day to fetch right data
     getDaysWithEvents();
   }, []);  // eslint-disable-line react-hooks/exhaustive-deps
@@ -40,15 +40,13 @@ const ReactCalendar = () => {
     return `${day}.${month+1}.${year}`
   }
 
-  const getEvents = (putedDate) => {
-    console.log('get events was called')
+  const getEvents = (putedDate) =>  {
     axios({
       method: 'POST',
       url: `${url}/getevents`,
       data: { cookies: Cookies.get(), date: putedDate },
     })
     .then(response => {
-      console.log(response.data.events)
       setEvents(response.data.events);
     })
     .catch(err => console.log(err))
@@ -63,7 +61,7 @@ const ReactCalendar = () => {
     .then(response => {
       setDaysWithEvents(response.data.daysWithEvents);
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
   }
 
   
@@ -81,7 +79,6 @@ const ReactCalendar = () => {
       data: { cookies: Cookies.get(), date: date, eventName, description, repeat, from, to  },
     })
     .then(response => {     
-      console.log(response.data.daysWithEvents)
       setNote(response.data.note);
       setEvents(response.data.events);
       setDaysWithEvents(response.data.daysWithEvents);
