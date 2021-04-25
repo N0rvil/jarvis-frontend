@@ -22,13 +22,33 @@ const ReactCalendar = () => {
   const [events, setEvents] = useState([]);
   const [daysWithEvents, setDaysWithEvents] = useState([]);
 
+  useEffect(() => { 
+    const currentDate = new Date(date);
+    let tomorrow = new Date(currentDate);
+    tomorrow.setDate(currentDate.getDate()+1);
+    console.log('component was mounted')
+    getEvents(date); // bacause of heroku servers i have to add one day to fetch right data
+    getDaysWithEvents();
+  }, []);  // eslint-disable-line react-hooks/exhaustive-deps
+          // removing the warning because its stupid :)
+
+  const shortDate = (d) => {
+    const date = new Date(d)
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    return `${day}.${month+1}.${year}`
+  }
+
   const getEvents = (putedDate) => {
+    console.log('get events was called')
     axios({
       method: 'POST',
       url: `${url}/getevents`,
       data: { cookies: Cookies.get(), date: putedDate },
     })
     .then(response => {
+      console.log(response.data.events)
       setEvents(response.data.events);
     })
     .catch(err => console.log(err))
@@ -41,30 +61,11 @@ const ReactCalendar = () => {
       data: { cookies: Cookies.get(), date: putedDate },
     })
     .then(response => {
-      console.log(response.data.daysWithEvents)
       setDaysWithEvents(response.data.daysWithEvents);
     })
     .catch(err => console.log(err))
   }
-  
-  useEffect(() => { 
-    const currentDate = new Date(date);
-    let tomorrow = new Date(currentDate);
-    tomorrow.setDate(currentDate.getDate()+1);
 
-    getEvents(tomorrow); // bacause of heroku servers i have to add one day to fetch right data
-    getDaysWithEvents();
-  }, []);  // eslint-disable-line react-hooks/exhaustive-deps
-          // removing the warning because its stupid :)
-  
-
-  const shortDate = (d) => {
-    const date = new Date(d)
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const day = date.getDate();
-    return `${day}.${month+1}.${year}`
-  }
   
   const onChange = (date) => {
     setDate(date);
