@@ -1,0 +1,12 @@
+@import '../../App.scss';
+
+.usersManagement {
+    min-height: 92vh;
+    background-color: $color-grey-primary;
+    font-size: 2rem;
+
+    &__list {
+        padding-top: 2rem;
+        margin: 0 auto 0 auto;
+    }
+}

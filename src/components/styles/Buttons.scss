@@ -62,6 +62,7 @@
     transition: all .2s;
     text-decoration: none;
     text-align: center;
+    margin: 2rem;
     &:hover {
         transform: scale(1.05);
         cursor: pointer;
@@ -206,7 +207,7 @@
     align-items: center;
     font-size: 1.2rem;
     background-color: $color-red;
-    columns: $color-black;
+    color: $color-black;
     border: none;
     outline: none;
     transition: all .2s;
@@ -219,4 +220,71 @@
         cursor: pointer;
         transform: scale(1.05);
     }
+}
+
+.btn__red-medium {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    background-color: $color-red;
+    color: $color-black;
+    border: none;
+    outline: none;
+    transition: all .2s;
+    margin: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    min-width: 14rem;
+    min-height: 5rem;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+}
+
+.btn__green-medium {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    background-color: $color-green-dark-1;
+    color: $color-black;
+    border: none;
+    outline: none;
+    transition: all .2s;
+    margin: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    min-width: 14rem;
+    min-height: 5rem;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+}
+
+.btn__refresh-small {
+    height: 3.5rem;
+    width: 3.5rem;
+    background-color: inherit;
+    border: none;
+    outline: none;
+
+    &>img {
+        height: 3rem;
+        width: 3rem;
+        &:hover {
+            animation: spin 2s linear infinite;
+            cursor: pointer;
+        }
+    }
+}
+
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
 }

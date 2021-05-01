@@ -3,15 +3,14 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-import history from '../../history'
-import { url } from '../url';
+import history from '../../../history'
+import { url } from '../../url';
 
-import Navbar from '../Navbar/Navbar';
-import NotFoundLoged from '../Error/NotFound/NotFound';
-import LoadingBig from '../Error/Loading/LoadingPage';
+import NotFoundLoged from '../../Error/NotFound/NotFound';
+import LoadingBig from '../../Error/Loading/LoadingPage';
 
-import './../styles/Forms.scss';
-import './../styles/Buttons.scss';
+import './../../styles/Forms.scss';
+import './../../styles/Buttons.scss';
 import './Login.scss';
 
 class Login extends React.Component {
@@ -24,7 +23,7 @@ class Login extends React.Component {
     checkLoginReq() {  
         axios({
            method: 'POST',
-           url: url,
+           url: `${url}/checklogin`,
            data: Cookies.get(),
        })
        .then(response =>  {
@@ -49,12 +48,17 @@ class Login extends React.Component {
                 if (response.data.note === 'success') {
                     const expireTime = 4/48 * 12; //24 HOURS
                     await Cookies.set('loged', { id: response.data.id, username: response.data.username, hash: response.data.hash, time: response.data.time, }, { expires: expireTime })                       
-                        history.replace('/main-page'); 
+                    history.replace('/main-page'); 
+                    window.location.reload();
                     cb();
                 } else if (response.data.note === 'no email verification') {
                     this.setState({ authentication: 'Your email was not verified! Please verify your email!' });
                 } else {
-                    this.setState({ authentication: 'Wrong email or passoword' });
+                    if (response.data.note === 'user is banned') {
+                        this.setState({ authentication: 'Your account was banned' })
+                    } else {
+                        this.setState({ authentication: 'Wrong email or passoword' });
+                    }     
                 }
             })
             .catch(err => console.log(err));
@@ -88,7 +92,7 @@ class Login extends React.Component {
         } else {
             return (
                 <div className='login'>
-                    <Navbar />
+                    
                         <form className='form login__form'  onSubmit={this.handleSubmit.bind(this)} >
                             <label className='form__header'>login</label>
                             <input className='form__input' type='text' value={this.state.email} onChange={e => this.setState({ email: e.target.value })} placeholder='e-mail' />

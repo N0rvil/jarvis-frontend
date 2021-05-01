@@ -2,8 +2,6 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 // import history from '../../history';
 
-import Navbar from '../Navbar/Navbar.js';
-
 import './About.scss';
 
 
@@ -13,7 +11,6 @@ class About extends React.Component {
     return (
         <div className='about' >  
             <div className='about__container'>
-                <Navbar />
                 <div className='about__part'>
                     <div className='about__box'>
                         <h1 className='about__header'>About this app</h1>
@@ -66,7 +63,7 @@ class About extends React.Component {
                     <ul className='about__versions-list'>
                         <li className=''>Release at 24.4.2021</li>
                         <li className=''>New graphic</li>
-                        <li className=''>Adding loading circles on pages</li>
+                        <li className=''>Adding loaders on pages</li>
                     </ul>
                 </div>
 

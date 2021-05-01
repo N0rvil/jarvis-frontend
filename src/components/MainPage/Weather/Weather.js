@@ -46,6 +46,9 @@ class Notes extends React.Component {
             return (
                 <div className='weather'>
                     <h2 className='weather__town'>{this.state.town}</h2>
+                    <button className='weather__refresh btn__refresh-small' onClick={() => this.getWeather()}>
+                        <img src='/images/svg/refresh-yellow.svg' alt='refresh-icon'></img>
+                    </button>
                     <div className='weather__box'>
                         <img className='weather__icon' src={this.state.icon} alt='weather-icon' />
                     </div>

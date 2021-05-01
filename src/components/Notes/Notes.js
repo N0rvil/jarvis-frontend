@@ -6,7 +6,6 @@ import Popup from 'reactjs-popup';
 import { url } from '../url';
 
 import NotFoundLoged from '../Error/NotFound/NotFound';
-import Navbar from '../Navbar/Navbar';
 import LoadingBig from '../Error/Loading/LoadingPage';
 
 import './Notes.scss';
@@ -20,7 +19,7 @@ class Notes extends React.Component {
     checkLoginReq() {  
         axios({
            method: 'POST',
-           url: url,
+           url: `${url}/checklogin`,
            data: Cookies.get(),
        })
        .then(response =>  {
@@ -159,7 +158,7 @@ class Notes extends React.Component {
         } else {
             return (
                 <div className='notes'>
-                    <Navbar />
+                    
                     {this.renderNotes()}            
                     <div className='notes__box'>
                     <Popup open={this.state.addActive} trigger={<button className='btn__responsive-yellow'>Add note +</button>} position="top center">

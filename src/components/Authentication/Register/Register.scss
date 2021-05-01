@@ -1,11 +1,13 @@
-@import '../App.scss';
+@import '../../App.scss';
 
 .register {
-    height: 100vh;
+    height: 92vh;
     width: 100vw;
     background-color: $color-grey-primary;
+    padding-top: 10rem;
+
     &__form {
-        margin: 10rem auto 0 auto;
+        margin: 0 auto 0 auto;
     }
 
     &__recaptcha {

@@ -1,11 +1,11 @@
 @import '../App.scss';
 
 .landingpage {
-    min-height: 100vh;
+    min-height: 92vh;
     background-color: $color-grey-primary;
+    padding-top: 15rem;
 
     &__box {
-        margin-top: 15rem;
         text-align: center;
     }
 

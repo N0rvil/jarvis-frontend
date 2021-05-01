@@ -3,15 +3,14 @@ import axios from 'axios';
 import ReCAPTCHA from 'react-google-recaptcha';
 import Cookies from 'js-cookie';
 
-import { url } from '../url';
+import { url } from '../../url';
 
-import Navbar from '../Navbar/Navbar.js';
-import NotFoundLoged from '../Error/NotFound/NotFound';
-import LoadingBig from '../Error/Loading/LoadingPage';
+import NotFoundLoged from '../../Error/NotFound/NotFound';
+import LoadingBig from '../../Error/Loading/LoadingPage';
 import VerifyEmail from '../VerifyEmail/VerifyEmail';
 
-import './../styles/Forms.scss';
-import './../styles/Buttons.scss';
+import './../../styles/Forms.scss';
+import './../../styles/Buttons.scss';
 import './Register.scss';
 
 class Register extends React.Component {
@@ -20,7 +19,7 @@ class Register extends React.Component {
     checkLoginReq() {  
         axios({
            method: 'POST',
-           url: url,
+           url: `${url}/checklogin`,
            data: Cookies.get(),
        })
        .then(response =>  {
@@ -112,7 +111,7 @@ class Register extends React.Component {
             } else {
                 return (
                     <div className='register'>
-                        <Navbar />
+                        
                         <form className='form register__form' onSubmit={this.handleSubmit.bind(this)} method='POST'>
                             <label className='form__header'>register</label>
                             <input className='form__input' type='text' value={this.state.username} onChange={e => this.setState({ username: e.target.value })} placeholder='username' />

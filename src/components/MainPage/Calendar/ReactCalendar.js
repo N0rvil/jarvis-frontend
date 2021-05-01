@@ -18,10 +18,10 @@ class ReactCalendar extends React.Component {
 
   componentDidMount()  {
     var today = this.state.date;
-    var tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate()-1)
-    tomorrow.toLocaleDateString()
-    this.getEvents(tomorrow); // i passed here tomorrow because heroku servers have different time
+    var yesterday = new Date(today);
+    yesterday.setDate(today.getDate()-1)
+    yesterday.toLocaleDateString()
+    this.getEvents(yesterday); // i passed here yesterday because heroku servers have different time
     //this.getEvents(new Date()); 
     this.getDaysWithEvents();
   }

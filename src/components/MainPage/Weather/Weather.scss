@@ -2,6 +2,7 @@
 
 
 .weather {
+    position: relative;
     background-color: $color-grey-primary;
     width: 100%;
     height: 100%;
@@ -19,7 +20,7 @@
     }
 
     &__temperature {
-        font-size: 4rem;
+        font-size: 3.5rem;
         &-blue {
             color: $color-blue-1;
         }
@@ -34,5 +35,12 @@
     }
     &__pressure {
         font-size: 2rem;
+    }
+
+    &__refresh {
+        position: absolute;
+        top: 2rem;
+        right: 3rem;
+        margin-left: 25rem;
     }
 }

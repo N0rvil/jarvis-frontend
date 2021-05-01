@@ -1,0 +1,57 @@
+@import '../../App.scss';
+
+.user {
+    width: 60%;
+    border: 4px solid $color-yellow-primary;
+    margin: 2rem auto 0 auto;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem;
+    
+    &__info {
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+    }
+
+    &__name {
+        color: $color-yellow-primary;
+        font-size: 3.5rem;
+        font-weight: 900;
+        width: 25rem;
+        text-align: center;
+        word-wrap: break-word;
+
+        &-current {
+            color: $color-green-dark-1;
+        }
+    }
+
+    &__data { 
+        font-size: 1.6rem;
+        font-weight: 700;
+        display: flex;
+
+        &-text {
+            color: $color-yellow-primary;
+            margin-left: 0.5rem;
+        }
+    }
+
+    &__empty-space {
+        width: 14rem;
+    }
+
+}
+
+.true {
+    color: $color-green-dark-1;
+    margin-left: 0.5rem;
+}
+
+.false {
+    color: $color-red;
+    margin-left: 0.5rem;
+}

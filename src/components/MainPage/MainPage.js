@@ -6,7 +6,6 @@ import axios from 'axios';
 import { getUser } from '../../actions';
 // import history from '../../history';
 
-import Navbar from '../Navbar/Navbar';
 // import Notes from './Notes/Notes';
 import Weather from './Weather/Weather';
 import Links from './Links/Links';
@@ -27,7 +26,7 @@ class MainPage extends React.Component {
     checkLoginReq() {  
         axios({
            method: 'POST',
-           url: url,
+           url: `${url}/checklogin`,
            data: Cookies.get(),
        })
        .then(response =>  {
@@ -66,22 +65,18 @@ class MainPage extends React.Component {
         } else {
             return (
                 <div className='mainpage'>
-                    
-                        <div className='mainpage__nav'>
-                            <Navbar />
-                        </div>
-                        <div className='mainpage__calendar'>
-                            <ReactCalendar />
-                        </div>
-                        <div className='mainpage__graph'>
-                            <Graphs />
-                        </div>
-                        <div className='mainpage__links'>
-                            <Links />
-                        </div>
-                        <div className='mainpage__weather'>
-                            <Weather />               
-                        </div>
+                    <div className='mainpage__calendar'>
+                        <ReactCalendar />
+                    </div>
+                    <div className='mainpage__graph'>
+                        <Graphs />
+                    </div>
+                    <div className='mainpage__links'>
+                        <Links />
+                    </div>
+                    <div className='mainpage__weather'>
+                        <Weather />               
+                    </div>
                 </div>
             )        
         }

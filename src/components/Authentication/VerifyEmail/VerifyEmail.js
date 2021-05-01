@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import history from '../../history';
 
-import Navbar from '../Navbar/Navbar.js';
-
 import './VerifyEmail.scss';
 
 class VerifyEmail extends React.Component {
@@ -11,7 +9,7 @@ class VerifyEmail extends React.Component {
   render() {
     return (
         <div className='verifyemail'>
-            <Navbar />
+            
             <div className='verifyemail__box'>
                 <h1 className='verifyemail__header'>Successfuly Registered</h1>
                 <img className='verifyemail__icon' src='./images/svg/check.svg' alt='exit-icon' /> 
