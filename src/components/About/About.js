@@ -59,6 +59,15 @@ class About extends React.Component {
                 <h1 className='about__header about__header-center'>Updates</h1>
 
                 <div className='about__versions-box'>
+                <h2 className='about__header-small about__header-center'>Version 2.1</h2>
+                    <ul className='about__versions-list'>
+                        <li className=''>Release at 1.5.2021</li>
+                        <li className=''>Tab for admin for user management</li>
+                        <li className=''>Adding refresh button to weather tab</li>
+                    </ul>
+                </div>
+
+                <div className='about__versions-box'>
                 <h2 className='about__header-small about__header-center'>Version 2.0</h2>
                     <ul className='about__versions-list'>
                         <li className=''>Release at 24.4.2021</li>
